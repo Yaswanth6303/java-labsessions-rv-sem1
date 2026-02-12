@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-        int choice = 0;
+        boolean running = true;
 
-        while (choice != 3) {
+        while (running) {
             System.out.println("Pick Vehicle");
             System.out.println("1. Car");
             System.out.println("2. Motorcycle");
@@ -18,7 +18,7 @@ public class Main {
                 System.out.print("Invalid input! Please enter only numbers: ");
                 sc.next();
             }
-            choice = sc.nextInt();
+            int choice = sc.nextInt();
 
             switch (choice) {
                 case 1 -> {
@@ -35,7 +35,7 @@ public class Main {
                 
                 case 3 -> {
                 	System.out.println("Exiting...");
-                	System.exit(0);
+                	running = false;
                 }
 
                 default -> System.out.println("Invalid choice! Please try again.");
