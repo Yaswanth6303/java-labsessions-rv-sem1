@@ -1,0 +1,48 @@
+package question03a;
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+        int choice = 0;
+
+        while (choice != 3) {
+            System.out.println("Pick Vehicle");
+            System.out.println("1. Car");
+            System.out.println("2. Motorcycle");
+            System.out.println("3. Exit");
+            System.out.print("Enter your choice: ");
+
+            while (!sc.hasNextInt()) {
+                System.out.print("Invalid input! Please enter only numbers: ");
+                sc.next();
+            }
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1 -> {
+                	Vehicle car = new Car();
+                	car.drive();
+                	System.out.println();
+                } 
+                
+                case 2 -> {
+                	Vehicle motorcycle = new Motorcycle();
+                	motorcycle.drive();
+                	System.out.println();
+                }
+                
+                case 3 -> {
+                	System.out.println("Exiting...");
+                	System.exit(0);
+                }
+
+                default -> System.out.println("Invalid choice! Please try again.");
+                
+            }
+        }
+
+        sc.close();
+	}
+}
